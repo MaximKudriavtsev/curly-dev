@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/curly-dev',
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
