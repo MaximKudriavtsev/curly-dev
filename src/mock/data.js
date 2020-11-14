@@ -1,18 +1,22 @@
 import { nanoid } from 'nanoid';
 
+const title = 'Software Solutions for Your Business';
+const subtitle =
+  'Our company offers a full cycle of web application development. From prototyping and fast MVP. Toward creating a design for your brand, developing, supporting, and promoting your service.';
+
 // HEAD DATA
 export const headData = {
-  title: '', // e.g: 'Name | Developer'
-  lang: '', // e.g: en, es, fr, jp
-  description: '', // e.g: Welcome to my website
+  title: `CurlyDev - ${title}`,
+  lang: 'en-US',
+  description: subtitle,
 };
 
 // HERO DATA
 export const heroData = {
-  title: '',
+  title,
   name: '',
-  subtitle: '',
-  cta: '',
+  subtitle,
+  cta: 'Connect with us',
 };
 
 // ABOUT DATA
