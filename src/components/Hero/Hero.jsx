@@ -1,12 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Fade from 'react-reveal/Fade';
-import { Link } from 'react-scroll';
-import PortfolioContext from '../../context/context';
+// import { Link } from 'react-scroll';
 
+import Form from './Form';
+import PortfolioContext from '../../context/context';
+// service_t0eo26r
 const Header = () => {
   const { hero } = useContext(PortfolioContext);
-  const { title, subtitle, cta } = hero;
+  const { title, subtitle } = hero;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -24,24 +28,34 @@ const Header = () => {
   return (
     <section id="hero" className="jumbotron">
       <Container>
-        <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-          <h1 className="hero-title">{title}</h1>
-        </Fade>
-        <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1000} distance="30px">
-          <h2 className="hero-subtitle">{subtitle}</h2>
-        </Fade>
+        <Row>
+          <Col md={6} sm={12}>
+            <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
+              <h1 className="hero-title">{title}</h1>
+            </Fade>
+            <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1000} distance="30px">
+              <h2 className="hero-subtitle">{subtitle}</h2>
+            </Fade>
 
-        <br />
+            <br />
 
-        <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1500} distance="30px">
-          <p className="hero-cta">
-            <span className="cta-btn cta-btn--hero">
-              <Link to="about" smooth duration={1000}>
-                {cta}
-              </Link>
-            </span>
-          </p>
-        </Fade>
+            {/* <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1500} distance="30px">
+              <p className="hero-cta">
+                <span className="cta-btn cta-btn--hero">
+                  <Link to="about" smooth duration={1000}>
+                    {cta}
+                  </Link>
+                </span>
+              </p>
+            </Fade> */}
+          </Col>
+
+          <Col md={6} sm={12}>
+            <Fade right={isDesktop} bottom={isMobile} duration={1000} delay={1500} distance="30px">
+              <Form />
+            </Fade>
+          </Col>
+        </Row>
       </Container>
     </section>
   );
